@@ -101,7 +101,7 @@ public class JenksFisher
     public static List<double> CreateJenksFisherBreaksArray(List<double> values, int numBreaks)
     {
         var tuples = BuildValueCountTuples(values);
-        var breaks = (tuples.Count > numBreaks) ? ClassifyByJenksFisher(numBreaks, tuples) : values.ToList();
+        var breaks = (tuples.Count > numBreaks) ? ClassifyByJenksFisher(numBreaks, tuples) : tuples.Select(x => x.Value).ToList();
         return breaks;
     }
 
